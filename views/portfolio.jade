@@ -1,0 +1,12 @@
+extends layout
+
+
+block content
+  h1 Our Portfolio
+  if projects.length > 0
+    each project in projects
+       .proj-style
+         h2 #{project.name}
+         img(src='#{project.picture}' alt='')
+         p #{project.description}
+         

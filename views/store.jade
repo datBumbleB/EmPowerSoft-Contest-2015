@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1 Welcome to our store!
+  if products.length > 0
+    ul
+      each product in products
+       li.prod-style
+         h2.product-name #{product.name}
+         h4 #{product.category}
+         img(src="#{product.image}" alt="")
+         p #{product.description}
+         h3 #{product.price} lei
+         input(type="number", name="quantity", value="1", class = "quant")
+         style(type='text/css') .btn{margin: 10px;}
+         button Add to Cart
+  else
+    p.top-offset.text-center No products available.
+  input(type="text", name="buyer-name", placeholder="Write your name here", id="buyer-name")
+  input(type="text", name="buyer-adress", placeholder="Write your adress here", id="buyer-adress")
+  button.btn#buy Buy 

@@ -1,0 +1,23 @@
+extends layout
+  
+block content
+
+  h2 Add a new product to shop
+  form.post-form.form-horizontal(action='/admin/product' method='POST')
+      input(type='hidden', name='_csrf', value=_csrf)
+      fieldset
+        input.form-control( name='name' required placeholder='name')
+        textarea.form-control(rows='2' name='description' required placeholder='description')
+        input.form-control(type='number' name='price' required placeholder='price')
+        input.form-control( name='category' required placeholder='category')
+        input.form-control( name='image' required placeholder='image URL')
+        button.pull-right.btn.btn-success(type='submit' required) Submit
+
+  h2 Add a new project to the portfolio
+  form.post-form.form-horizontal(action='/admin/project' method='POST')
+      input(type='hidden', name='_csrf', value=_csrf)
+      fieldset
+        textarea.form-control(rows='2' name='project_name' required placeholder='name')
+        textarea.form-control(rows='2' name='project_description' required placeholder='description')
+        textarea.form-control(rows='2' name='project_picture' required placeholder='image URL')
+        button.pull-right.btn.btn-success(type='submit') Submit

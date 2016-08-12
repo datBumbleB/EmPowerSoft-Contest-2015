@@ -1,0 +1,81 @@
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    meta(name="Resource-type" content="Document")
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='csrf-token', content=_csrf)
+    title CommerceSRL
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js')
+    script(src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js')
+    != css('examples')
+    != css('jquery.fullPage')
+    != js('jquery.slimscroll.min')
+    != js('jquery.fullPage')
+    != js('examples.js')
+    != js('script1')
+    //- != js('application')
+    script.
+      if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        window.location.replace("/home");
+      }
+  body
+    ul#menu
+      li.active(data-menuanchor='Home')
+        a(href='#Home') Home
+      li(data-menuanchor='Portfolio')
+        a(href='#Portfolio') Portfolio
+      li(data-menuanchor='Store')
+        a(href='#Store') Store
+      li(data-menuanchor='Services')
+        a(href='#Services') Services
+      li(data-menuanchor='About')
+        a(href='#About') About
+      li(data-menuanchor='Contact')
+        a(href='#Contact') Contact
+      li#logo
+        a(href='#Home') CommerceSRL
+    
+    #fullpage
+      #section0.section
+        .intro0
+          h1
+            | Welcome to 
+            br
+            | CommerceSRL !
+          p Take a look to our Portoflio, Services and our Store!
+      
+      #section1.section
+        if projects.length > 0
+          each project in projects
+            style(type='text/css') ##{project.name}{background-image:url(#{project.picture});	background-size: cover;}
+            .slide(id='#{project.name}')
+              
+              h2 #{project.name}
+              p #{project.description}
+      #section2.section
+        .intro
+            h1 Check out our Store !
+            .strbttn 
+              a(href='/store' class='store-button') See more
+            
+      #section3.section
+        #slide4.slide
+          h1 Custom products
+          p We do special cuts for your unique projects.
+        #slide5.slide
+          h1 Fast transport
+          p Have everything delivered to you in maximum 2 days anywhere in your country!
+            
+      #section4.section
+        h1 About us
+        ul
+          li Nr. Reg. Comerțului 01/06/2015
+          li RO 12345678
+          li str. Independenței nr. 1
+          li Ploiești, Prahova
+     
+      #section5.section
+        .intro
+          h1 Contact us
+          .strbttn 
+            a(href='/contact' class='store-button') Go to form
